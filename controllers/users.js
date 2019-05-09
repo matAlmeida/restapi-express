@@ -1,9 +1,9 @@
-// curl -H "Content-Type: application/json" -X POST -d '{"id":2, "name":"Almeida", "age":21}' http://localhost:3000/users
-// curl -H "Content-Type: application/json" -X PUT -d '{"id":1, "name":"MAT1", "age":21}' http://localhost:3000/users/1
-// curl -H "Content-Type: application/json" -X DELETE -d '{"id":2, "name":"Almeida", "age":21}' http://localhost:3000/users/2
+// curl -H "Content-Type: application/json" -X POST -d '{"id":2, "name":"Almeida", "age":21}' http://localhost:PORT/users
+// curl -H "Content-Type: application/json" -X PUT -d '{"id":1, "name":"MAT1", "age":21}' http://localhost:PORT/users/1
+// curl -H "Content-Type: application/json" -X DELETE -d '{"id":2, "name":"Almeida", "age":21}' http://localhost:PORT/users/2
 
-var express = require('express')
-  , router = express.Router();
+const express = require('express');
+const router = express.Router();
 
 global.users = [
 	{

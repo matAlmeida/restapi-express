@@ -1,1 +1,1 @@
-# node-express-app-structure
+# ExpressJS REST API Structure
