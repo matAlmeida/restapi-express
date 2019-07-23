@@ -1,0 +1,92 @@
+{
+  "swagger": "2.0",
+  "basePath": "/api/v1",
+  "info": {
+    "version": "0.0.1",
+    "title": "Express API",
+    "description": "Description"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "paths": {
+    "/users": {
+      "get": {
+        "summary": "Get all users",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "got users"
+          },
+          "204": {
+            "description": "users not found"
+          },
+          "500": {
+            "description": "internal server error"
+          }
+        }
+      },
+      "post": {
+        "summary": "Add a new user",
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "value": {
+              "id": "id",
+              "name": "name",
+              "age": "age"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User added"
+          },
+          "400": {
+            "description": "bad request"
+          },
+          "500": {
+            "description": "internal server error"
+          }
+        }
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "summary": "Get user with the given id",
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "type": "string",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "got user"
+          },
+          "204": {
+            "description": "user not found"
+          },
+          "400": {
+            "description": "bad request"
+          },
+          "500": {
+            "description": "internal server error"
+          }
+        }
+      }
+    }
+  }
+}
