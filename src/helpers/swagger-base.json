@@ -1,0 +1,13 @@
+{
+  "swagger": "2.0",
+  "basePath": "/api/v1",
+  "info": {
+    "version": "0.0.1",
+    "title": "Express API",
+    "description": "Description"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ]
+}
