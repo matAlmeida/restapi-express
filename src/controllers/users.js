@@ -2,15 +2,15 @@
 // curl -H "Content-Type: application/json" -X PUT -d '{"id":1, "name":"MAT1", "age":21}' http://localhost:PORT/users/1
 // curl -H "Content-Type: application/json" -X DELETE -d '{"id":2, "name":"Almeida", "age":21}' http://localhost:PORT/users/2
 
-const express = require('express');
+import express from 'express';
 const router = express.Router();
 
 global.users = [
-    {
-        id: 1,
-        name: 'Matheus',
-        age: 22
-    }
+  {
+    id: 1,
+    name: 'Matheus',
+    age: 22
+  }
 ];
 
 /**
@@ -26,9 +26,9 @@ global.users = [
  *      description: "internal server error"
  */
 router.get('/', (req, res) => {
-    return res.json({
-        users: global.users
-    });
+  return res.json({
+    users: global.users
+  });
 });
 
 /**
@@ -51,11 +51,11 @@ router.get('/', (req, res) => {
  *      description: "internal server error"
  */
 router.post('/', (req, res) => {
-    if (global.users.some(user => user.id === req.body.id))
-        return res.sendStatus(400);
+  if (global.users.some((user) => user.id === req.body.id))
+    return res.sendStatus(400);
 
-    global.users.push(req.body);
-    return res.send(`User ${req.body.name} added with success.`);
+  global.users.push(req.body);
+  return res.send(`User ${req.body.name} added with success.`);
 });
 
 /**
@@ -81,44 +81,44 @@ router.post('/', (req, res) => {
  *      description: "internal server error"
  */
 router.get('/:userid', (req, res) => {
-    const user = global.users.filter(user => user.id == req.params.userid);
-    if (user.length > 0) return res.send(user[0]);
-    else return res.sendStatus(204);
+  const user = global.users.filter((user) => user.id == req.params.userid);
+  if (user.length > 0) return res.send(user[0]);
+  else return res.sendStatus(204);
 });
 
 router.put('/:userid', (req, res) => {
-    global.users.some(user => {
-        if (user.id == req.params.userid) {
-            user.name = req.body.name;
-            user.age = req.body.age;
-            return res.json({
-                user: user,
-                success: true
-            });
-        }
-    });
+  global.users.some((user) => {
+    if (user.id == req.params.userid) {
+      user.name = req.body.name;
+      user.age = req.body.age;
+      return res.json({
+        user: user,
+        success: true
+      });
+    }
+  });
 
-    return res.json({
-        message: `User with the id ${req.params.userid} doesnt exists.`,
-        success: false
-    });
+  return res.json({
+    message: `User with the id ${req.params.userid} doesnt exists.`,
+    success: false
+  });
 });
 
 router.delete('/:userid', (req, res) => {
-    let len = global.users.length;
+  let len = global.users.length;
 
-    global.users = global.users.filter(user => user.id != req.params.userid);
+  global.users = global.users.filter((user) => user.id != req.params.userid);
 
-    if (len == global.users.length)
-        return res.json({
-            message: `User with the id ${req.params.userid} doesnt exists.`,
-            success: false
-        });
-    else
-        return res.json({
-            user: `User with id ${req.body.id} removed.`,
-            success: true
-        });
+  if (len == global.users.length)
+    return res.json({
+      message: `User with the id ${req.params.userid} doesnt exists.`,
+      success: false
+    });
+  else
+    return res.json({
+      user: `User with id ${req.body.id} removed.`,
+      success: true
+    });
 });
 
-module.exports = router;
+export default router;

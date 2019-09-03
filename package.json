@@ -1,23 +1,45 @@
 {
   "name": "restapi-express",
-  "version": "1.0.0",
-  "description": "description",
-  "main": "app.js",
-  "dependencies": {
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1",
-    "swagger-inline": "^1.0.5",
-    "swagger-ui-express": "^4.0.7"
-  },
-  "devDependencies": {},
+  "version": "2.0.0",
+  "description": "A Starter Repo to create a Rest API using Express",
+  "main": "index.js",
   "scripts": {
-    "start": "node src/app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/index.js",
+    "lint": "eslint ./src/**/*.js --quiet"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/chr0m1ng/restapi-express"
+    "url": "https://github.com/matalmeida/restapi-express"
   },
-  "author": "Gabriel Rodrigues dos Santos",
-  "license": "MIT"
+  "authors": [
+    "Matheus Almeida Santos Anjos <mat.almeida@live>",
+    "Gabriel Rodrigues dos Santos"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "compression": "1.7.4",
+    "dotenv": "6.1.0",
+    "esm": "3.2.25",
+    "express": "4.17.1",
+    "express-cors": "0.0.3",
+    "helmet": "3.14.0",
+    "swagger-inline": "1.0.5",
+    "swagger-ui-express": "4.0.7"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "8.1.0",
+    "@commitlint/config-conventional": "8.1.0",
+    "commitizen": "4.0.3",
+    "cz-conventional-changelog": "3.0.2",
+    "eslint": "^5.8.0",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "husky": "2.4.0",
+    "prettier": "^1.14.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  }
 }
