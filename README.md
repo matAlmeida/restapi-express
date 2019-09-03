@@ -1,4 +1,4 @@
-# Express Starter
+# RESTApi Express Starter
 
 > A Starter Repo to create a Rest API using Express
 
