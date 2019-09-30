@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js",
-    "lint": "eslint ./src/**/*.js --quiet"
+    "dev": "NODE_ENV=development nodemon --exec node src/index.js",
+    "lint": "eslint ./src/**/*.js --quiet",
+    "cm": "git-cz"
   },
   "repository": {
     "type": "git",
@@ -22,7 +24,8 @@
     "esm": "3.2.25",
     "express": "4.17.1",
     "express-cors": "0.0.3",
-    "helmet": "3.14.0",
+    "helmet": "3.21.1",
+    "nodemon": "1.19.3",
     "swagger-inline": "1.0.5",
     "swagger-ui-express": "4.0.7"
   },
